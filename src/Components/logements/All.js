@@ -15,23 +15,32 @@ class Home extends Component {
         return (
             <>
                 {
-                    logements ? (
-                        <>
-                            {logements.map(logement =>
-                                <>
-                                    <img width="10%" src={logement.photo} alt="logement"></img>
-                                    <NavLink to={`/user/${logement.logement.id}/show`}>
-                                        {logement.logement.name}<br />
-                                    </NavLink>
-                                    <div onClick={() => { if (window.confirm('Vous êtes sûr?')) { this.delete() } }}>
-                                        Supprimer
-                                    </div>
-                                </>
-
-                            )}
-                        </>
-                    ) : null
-
+                 logements ? (
+                  <>
+                   {logements.map(logement =>
+                     <>
+                      <img width="10%" src={logement.photo} alt="logement"></img><br />
+                       {logement.logement.idlogement}<br />
+                       {logement.logement.name}<br />
+                       <a href={`/logements/${logement.logement.id}/message`}>Contacter le Propriétaire</a>
+                      <div>   
+                         Propriétaire<br />
+                       {logement.proprietaire.name}<br />
+                       {logement.proprietaire.first_name}<br />
+                       {logement.proprietaire.email}<br />
+                       {logement.proprietaire.mobile}<br />
+                       tarif:<br />
+                       {logement.tarif}€
+                      </div>
+                      <div>
+                        <NavLink to={`/logement/${logement.logement.id}/show`}>
+                          Modifier/Supprimer
+                        </NavLink>
+                      </div>
+                     </>
+                   )}
+                  </>
+                 ) : null
                 }
             </>
         );

@@ -47,21 +47,16 @@ export const userLoginAttempt = ({ email, password}) => {
                 const user = response.data.user ? response.data.user : null;
                 dispatch((authLoginSuccess(token, user)))
              
-                    history.push('/dashboard');
+                    history.push('/');
             }
         }).catch(error => {
             let status = null;
-
             if (error.response) {
                 if (error.response.status) {
                     status = error.response.status;
                 }
             }
-
-            console.log('/auth/login[error]', error);
-
             let message = '';
-
             if (401 === status) {
                 message = 'Utilisateur ou mot de passe incorrect';
             } else if (500 === status) {
@@ -79,10 +74,7 @@ export const userUpdateAttempt = (user, values) => {
         axios.put(`/users/${user.id}`, values)
             .then(response => {
                 if (response.status === 200) {
-                    console.log(response.data)
                     const { user } = response.data;
-                    console.log(user);
-                   const p= dispatch(authUpdateSuccess(user));
                 }
             })
     }

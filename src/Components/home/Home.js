@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios'
-
+    
 class Home extends Component {
-    state = {  }
+    state = {}
     componentDidMount() {
         axios.get('/user/all').then(response => (
             this.setState({ users: response.data.users })
@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1> Runbnb </h1>            
+                <h1> Runbnb </h1>
                 <div>
                     <NavLink to={'/user/all'}>
                         User All
@@ -27,7 +27,6 @@ class Home extends Component {
                         logements All
                     </NavLink>
                     {this.state.logements && this.state.logements.length}
-
                 </div>
             </div>
         );

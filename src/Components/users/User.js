@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import history from '../../history';
+import moment from 'moment'
 class User extends Component {
     state = {
         user: null,
     }
-    
-    componentDidMount(){
-        const {match:{params}}=this.props
+
+    componentDidMount() {
+        const { match: { params } } = this.props
         axios.get(`/user/${params.user_id}/show`).then(response => (
             this.setState({ user: response.data.user })
         ))
-    }   
-    delete(id){
-        const asy = async () =>{
-          await  axios.delete(`/user/${id}/delete`)
+    }
+    async delete(id) {
+        {
+            alert("avant")
+            await axios.delete(`/user/${id}/delete`)
+            alert("aprés")
             history.push("/user/all")
             window.location.reload()
         }
-        asy()
     }
     render() {
         const { user } = this.state
@@ -28,10 +30,10 @@ class User extends Component {
                     user ? (
                         <>
                             <div >
-                                {user.photo?(
+                                {user.photo ? (
                                     <img width="30%" src={user.avatar} alt="Profil"></img>
 
-                                ):
+                                ) :
                                     <img width="30%" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profil"></img>
 
                                 }<br />
@@ -43,6 +45,8 @@ class User extends Component {
                                 {user.user.sexe}<br />
                                 {user.user.mobile}<br />
                                 {user.user.urgence}<br />
+                                Menbre dépuis:<br />
+                                {moment(user.user.created_at).format("LL")}<br />
                             </div>
                             <div onClick={() => { if (window.confirm('Vous êtes sûr?')) this.delete(user.user.id) }}>
                                 Supprimer

@@ -2,12 +2,16 @@ import axios from 'axios';
 import history from './history';
 import store from './store';
 import { userLogoutAttempt } from './redux/Auth/auth.action';
+import process from "process";
 
 
 
-axios.defaults.baseURL = ' http://localhost:4000';
-// http://localhost:4000/
-// http://f07f4cb.online-server.cloud
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    axios.defaults.baseURL = 'http://localhost:4000';
+} else {
+    axios.defaults.baseURL = 'http://f07f4cb.online-server.cloud';
+}
 /**
  * Injecting token to axios instance
  */
