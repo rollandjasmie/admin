@@ -1,0 +1,19 @@
+@import '~tailwindcss/dist/base.css';
+@import '~tailwindcss/dist/components.css';
+@import '~tailwindcss/dist/utilities.css';
+
+
+.log1{background-image: url('/images/villa.jpg');
+    background-size: cover;}
+
+.log2{background-image: url('/images/villa.jpg');
+    background-size: cover;}
+
+.log3{background-image: url('/images/villa.jpg');
+    background-size: cover;}
+
+.log4{background-image: url('/images/villa.jpg');
+    background-size: cover;}
+
+.log5{background-image: url('/images/villa.jpg');
+    background-size: cover;}

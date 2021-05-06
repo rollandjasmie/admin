@@ -1,0 +1,41 @@
+/* .e-tbar-btn-text:last-of-type{
+    margin-right: 1200px;
+} */
+.e-resource-column-table{
+	padding-left: 50px;
+}
+.schedulecontainer{
+	position: relative;
+
+}
+
+
+.imageLogement{
+	height: 50px;
+	width: 50px;
+	margin:20px;
+	border-radius: 100%;
+}
+.container_IL{
+	position: absolute;
+	z-index: 100;
+	top: 5rem;
+}
+.e-schedule .e-timeline-view .e-appointment, .e-schedule .e-timeline-month-view .e-appointment{
+	color: #999;
+	border: none;
+	width:50px !important;
+	margin: 10px;
+	background: none !important;
+}
+
+.e-work-cells.e-child-node.e-work-days.e-selected-cell::before{
+	content: '';
+	width: 400px;
+	height: 300px;
+	background: #f00;
+	z-index: 2000;
+}
+.promotion{
+	padding-top: 50px;
+}

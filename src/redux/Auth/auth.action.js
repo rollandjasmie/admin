@@ -32,39 +32,86 @@ export const authUpdateSuccess = (user) => ({
     user: user
 });
 
-export const userLoginAttempt = ({ email, password}) => {
-    return (dispatch) => {
-        dispatch(authLoginRequest());
-        return axios.post('/login/admin', {
-            email: email,
-            password: password,
-        }).then(response => {
-            if (response.data.error === "Mot de passe ou email incorrect") {
-                const message = 'email ou mot de passe incorrect';
-                dispatch((authLoginError(message)))
-            } else {
-                const token = response.data.token;
-                const user = response.data.user ? response.data.user : null;
-                dispatch((authLoginSuccess(token, user)))
-             
-                    history.push('/');
-            }
-        }).catch(error => {
-            let status = null;
-            if (error.response) {
-                if (error.response.status) {
-                    status = error.response.status;
-                }
-            }
-            let message = '';
-            if (401 === status) {
-                message = 'Utilisateur ou mot de passe incorrect';
-            } else if (500 === status) {
-                message = 'Une erreur est survenue. Réessayer à nouveau !';
-            }
+export const userLoginAttempt = ({ email, password, is_client,reservation,admin }) => {
+    if (admin) {
+        return (dispatch) => {
 
-            dispatch((authLoginError(message)))
-        })
+            dispatch(authLoginRequest());
+            return axios.post('/login/admin', {
+                email: email,
+                password: password,
+            }).then(response => {
+                if (response.data.error === "Mot de passe ou email incorrect") {
+                    const message = 'email ou mot de passe incorrect';
+                    dispatch((authLoginError(message)))
+                } if (response.data.token) {
+                    alert("A")
+                    const token = response.data.token;
+                    const user = response.data.user ? response.data.user : null;
+                    dispatch((authLoginSuccess(token, user)))
+                    history.push('/')
+                    
+                }
+
+            }).catch(error => {
+                let status = null;
+                
+                if (error.response) {
+                    if (error.response.status) {
+                        status = error.response.status;
+                    }
+                }
+                let message = '';
+                if (401 === status) {
+                    message = 'Utilisateur ou mot de passe incorrect';
+                } else if (500 === status) {
+                    message = 'Une erreur est survenue. Réessayer à nouveau !';
+                }
+                console.log("ss")
+                dispatch((authLoginError(message)))
+            })
+        }
+
+    }else {
+        return (dispatch) => {
+            dispatch(authLoginRequest());
+            return axios.post('/login', {
+                email: email,
+                password: password,
+                is_client: is_client
+            }).then(response => {
+                if (response.data.error === "Mot de passe ou email incorrect") {
+                    const message = 'email ou mot de passe incorrect';
+                    dispatch((authLoginError(message)))
+                } else {
+                    const token = response.data.token;
+                    const user = response.data.user ? response.data.user : null;
+                    dispatch((authLoginSuccess(token, user)))
+                    if (reservation) {
+                        history.push(reservation);
+                    }else{
+                        history.push('/dashboard');
+                    }
+                }
+            }).catch(error => {
+                let status = null;
+    
+                if (error.response) {
+                    if (error.response.status) {
+                        status = error.response.status;
+                    }
+                }
+                let message = '';
+                if (401 === status) {
+                    message = 'Utilisateur ou mot de passe incorrect';
+                } else if (500 === status) {
+                    message = 'Une erreur est survenue. Réessayer à nouveau !';
+                }
+    
+                dispatch((authLoginError(message)))
+            })
+        }
+        
     }
 }
 
@@ -74,7 +121,10 @@ export const userUpdateAttempt = (user, values) => {
         axios.put(`/users/${user.id}`, values)
             .then(response => {
                 if (response.status === 200) {
+                    console.log(response.data)
                     const { user } = response.data;
+                    console.log(user);
+                   const p= dispatch(authUpdateSuccess(user));
                 }
             })
     }

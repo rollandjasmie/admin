@@ -1,39 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
+import AjoutHebergements from "./Components/pages/AjoutHebergements";
+import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import Connexion from './Components/connexion/Connexion';
 import { connect } from 'react-redux';
-import Home from './Components/home/Home';
-import users from './Components/users/All'
-import user from './Components/users/User'
-import logements from './Components/logements/All'
-import logement from './Components/logements/Show'
-import LogementMessages from './Components/logements/message/Affichage'
-class App extends Component {
-  state = {}
+import './loader.js'
+import admin_connexion from  './Components/Admin/connexion/Connexion'
+import Admin from './Components/Admin/Route'
+
+class App extends React.Component {
   render() {
     const { isAuthenticated } = this.props;
+    const { user } = this.props;
     return (
-      <BrowserRouter>
-        {isAuthenticated ? (
+      <>
+        <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Home} />
-            {/*  Users */}
-            <Route exact path="/user/all" component={users} />
-            <Route exact path="/user/:user_id/show/" component={user} />
-            <Route exact path="/logements/all" component={logements} />
-            <Route exact path="/logement/:logement_id/show" component={logement} />
-            <Route excat path="/logements/:logement_id/message" component={LogementMessages} />
+            {
+              isAuthenticated  && user.admin === true ?(
+                <div>
+                  <Admin />
 
-
-          </Switch>
-        ) :
-          <Switch>
-            <Route exact path="/admin" component={Connexion} />
-            <Redirect to='/admin' />
-          </Switch>
-        }
-
-      </BrowserRouter>
+                </div>
+              ):null
+            }
+            {
+              !isAuthenticated ? (
+                <>
+                    <Route exact path='/'  component={admin_connexion} >
+                    </Route>
+                </>
+              ) : null
+            }
+            </Switch>
+        </BrowserRouter>
+      </>
     );
   }
 }
@@ -42,5 +42,4 @@ const mapStateToprops = (state) => {
     ...state.auth
   }
 }
-
 export default connect(mapStateToprops)(App);

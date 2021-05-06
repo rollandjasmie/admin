@@ -1,3 +1,93 @@
+@import '~tailwindcss/dist/base.css';
+@import '~tailwindcss/dist/utilities.css';
+@import '~tailwindcss/dist/components.css';
+
+
+
+
+@media screen and (max-width: 639px) {
+  .deja {display: none;}
+  .step {display: none;}
+  .homelog {margin-left: 0;}
+  .texteinscri{
+                width: 100%;      
+                text-align: center;
+                padding-top: 100px;
+              font-size:x-large;}
+  .butcon{
+    font-size: small;
+    margin-right: 30px;
+    width: 150px;}
+    .formu{position: relative;
+      bottom: 50px;}
+}
+@media screen and (max-width: 396px) {
+
+      .butcon{
+        font-size: small;
+     
+        width: 150px;
+      justify-content: center;}
+      .homelog1{width: 100%;}
+      .formu{position: relative;
+            bottom: 50px;}
+}
+
+@media screen and (max-width: 410px) {
+
+   .regle{width: 100% !important;
+  margin-left: 0!important;}
+  .cont{background-color: white;
+    position: relative;
+    bottom: 50px;}
+    .span{margin-left: 25px;
+    margin-right: 25px;}
+}
+
+
+@media screen and (max-width: 688px) {
+
+  .regle1{width: 100% !important;
+    height: 100% !important;
+ margin-left: 0!important;
+box-shadow: none;}
+ .cont{background-color: white;
+   position: relative;
+   bottom: 50px;}
+   .span{margin-left: 25px;
+   margin-right: 25px;}
+   .bgcon{background-color: white;}
+   
+}
+
+@media screen and (max-width: 639px) {
+.cal{margin-top: 0;
+margin-left: 0;}
+
+
+}
+
+
+  .glmap{width:92% !important;
+    height: 60% !important;}
+    .glmap2{width:27% !important;
+      height: 20% !important;}
+      .glmap3{width:44% !important;
+        height: 30% !important;}
+  
+
+
+/* extranet */
+
+@media screen and (max-width: 871px) {
+    .nav-action{display: none;}
+}
+
+
+
+/* .mapcont{width: 100%!important;
+ height: 100%!important;} */
+
 .App {
   text-align: center;
 }
@@ -6,6 +96,8 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+.form-control {width: 100% !important;}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -36,3 +128,201 @@
     transform: rotate(360deg);
   }
 }
+.sidebarStyle {
+  display: inline-block;
+  top: 0px;
+  left: 0;
+  margin: 12px;
+  background-color: #404040;
+  color: #ffffff;
+  z-index: 1 !important;
+  padding: 6px;
+  font-weight: bold;
+}
+
+.mapContainer {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  height: 400px;
+}
+
+.control-panel {
+  top: 0;
+  right: 0;
+  max-width: 320px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 12px 24px;
+  margin: 20px;
+  font-size: 13px;
+  line-height: 2;
+  color: #6b6b76;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* .plus{position: relative;
+top: 0.1rem;} */
+.materialui-daterange-picker-MuiList-root-257{
+  display: none;
+}
+
+.sp{top: 1rem;
+left:60vh;}
+
+
+.sary{
+  position :absolute;
+  left: 10px;
+  width: 390px;
+  height: 450px;
+  overflow: hidden;
+}
+.h{
+  font-size: 14px; 
+}
+
+.field{
+  position :absolute;
+  left: 600px;
+}
+.larg{
+  width: 450px;
+}
+
+
+.heading {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.img-holder {
+  margin: auto;
+  width: 180px;
+  height: 180px;
+
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+#input[type="file"] {
+  display: none;
+}
+
+.label {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.image-upload {
+  margin: auto;
+  width: 200px;
+  height: 50px;
+  color: white;
+  border-radius: 10px;
+  color :blue ;
+  text-align: center;
+  cursor: pointer;
+}
+
+.gg{
+  width: 333px;
+  height: 333px;
+  border: 1px rgb(27, 22, 22)  dotted;
+  margin-left: 22px;
+  overflow: hidden;
+  margin-top: 44px;
+}
+
+.juser{
+  width:390px;
+  position: absolute;
+  top: 750px;
+}
+
+.f{
+  font-size: 14px;
+}
+.kel{
+  font-size: 11px;
+  overflow: hidden;
+}
+*{
+  overflow-x: visible;
+  
+  
+}
+
+.imgz{
+  width: 420px;
+  height: 350px;
+}
+
+.horizon{
+  width: 260px;
+  text-align: center;
+
+}
+
+
+.isum:hover{
+   transform: scale(1.025); 
+transition: transform 0.5s
+
+   }
+
+.vr{
+  width: 1px;
+  height: 100px;
+  
+}
+
+.active {
+  background: rgba(250, 250, 250, 0.4);
+  font-weight: 600;
+ 
+}
+
+
+.button{
+  background-color: #e77b53;
+}
+
+.textprom{color:white ;
+background-color: #e77b53;}
+
+.contacterr:hover {font-weight: 500;}
+
+.buttonnon{border-color:#e77b53 !important;
+color: #e77b53 !important;
+background-color: #fff !important;
+ }
+ .buttonnon:hover{font-weight: 500;}
+
+ .runbnb{color: #e77b53 !important;}
+ .liend:hover{font-weight: 400;}
+ .liend{font-weight: 300;}
+.pasdoffre {
+  color:#3B82F6;
+}
+
+
+
