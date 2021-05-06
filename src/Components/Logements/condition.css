@@ -1,0 +1,68 @@
+
+#jr1:checked+label{
+    background-color: #F47E54;
+    color: #fff;
+}
+#jr7:checked+label{
+    background-color: #F47E54;
+    color: #fff;
+}
+#jr14:checked+label{
+    background-color: #F47E54;
+    color: #fff;
+}
+#jr30:checked+label{
+    background-color: #F47E54;
+    color: #fff;
+}
+label.jour{
+    color: #F47E54;
+}
+label.jour:hover{
+   background: #F47E54;
+}
+
+.text-theme{
+    color: #F47E54;
+}
+
+.bg-theme{
+    background: #F47E54;
+}
+.normal-theme{
+    background: none;
+}
+.normal-theme:hover{
+    background: none;
+}
+.hr-theme{
+    border-color: #F47E54;
+}
+
+.sansbg{
+    background: none;
+    border: 2px solid #F47E54;
+}
+.sansbg:hover{
+    background-color: #e77b53;
+}
+button, .simul-btn{
+    background-color: #F47E54;
+}
+button:hover, .simul-btn:hover{
+    background-color: #e77b53;
+}
+button.sansbg{
+    background: none;
+    border: 2px solid #F47E54;
+}
+button.sansbg:hover{
+    background-color: #e77b53;
+}
+.nice-dates-day:before {
+    background-color: #26AEDE;
+    border-radius: 0;
+}
+.nice-dates-day:after {
+    border-radius: 0;
+}

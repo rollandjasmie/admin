@@ -1,0 +1,41 @@
+.nav-action {
+    .titre {
+        color: white;
+        border: 1px solid #F47E54;
+        background-color: #F47E54;
+        padding: 5px 10px;
+        position: relative;
+        border-radius: 3px;
+    }
+
+    .content {
+        transform: scale(1, 0);
+        position: absolute;
+        background-color:white;
+        color:#f56632;
+        margin-top: 10px;
+        padding: 10px 15px;
+        transition: all ease-out 200ms;
+        transform-origin: top;
+        border: 2px solid #F47E54;
+
+        .item {
+            cursor: pointer;
+            font-weight: 300;
+
+            &:hover {
+                text-decoration: none;
+                color: #f56632;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &:hover {
+        .content {
+            transform: scale(1, 1);
+            transition: all ease-in 200ms;
+            transform-origin: top
+        }
+    }
+}

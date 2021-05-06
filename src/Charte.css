@@ -1,0 +1,12 @@
+@import '~tailwindcss/dist/base.css';
+@import '~tailwindcss/dist/utilities.css';
+@import '~tailwindcss/dist/components.css';
+
+
+.atteste{position: relative;
+left: 1rem;
+bottom: 0.2rem;}
+
+.atteste2{position: relative;
+    left: 1rem;
+    bottom: 0.2rem;}

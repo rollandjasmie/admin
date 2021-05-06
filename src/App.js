@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React from 'react';
+import AjoutHebergements from "./Components/pages/AjoutHebergements";
 import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import './loader.js'
+import admin_connexion from  './Components/Admin/connexion/Connexion'
+import Admin from './Components/Admin/Route'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    const { isAuthenticated } = this.props;
+    const { user } = this.props;
+    return (
+      <>
+        <BrowserRouter>
+          <Switch>
+            {
+              isAuthenticated  && user.admin === true ?(
+                <div>
+                  <Admin />
+
+                </div>
+              ):null
+            }
+            {
+              !isAuthenticated ? (
+                <>
+                    <Route exact path='/'  component={admin_connexion} >
+                    </Route>
+                </>
+              ) : null
+            }
+            </Switch>
+        </BrowserRouter>
+      </>
+    );
+  }
 }
-
-export default App;
+const mapStateToprops = (state) => {
+  return {
+    ...state.auth
+  }
+}
+export default connect(mapStateToprops)(App);

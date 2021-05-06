@@ -1,0 +1,9 @@
+.calendar-picker {
+    transform: scale(0);
+    transition: all ease 350ms;
+
+    &.show {
+        transform: scale(1);
+        transition: all ease 350ms;
+    }
+}
