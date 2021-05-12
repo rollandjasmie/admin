@@ -32,8 +32,7 @@ export const authUpdateSuccess = (user) => ({
     user: user
 });
 
-export const userLoginAttempt = ({ email, password, is_client,reservation,admin }) => {
-    if (admin) {
+export const userLoginAttempt = ({ email, password}) => {
         return (dispatch) => {
 
             dispatch(authLoginRequest());
@@ -44,15 +43,19 @@ export const userLoginAttempt = ({ email, password, is_client,reservation,admin 
                 if (response.data.error === "Mot de passe ou email incorrect") {
                     const message = 'email ou mot de passe incorrect';
                     dispatch((authLoginError(message)))
-                } if (response.data.token) {
-                    alert("A")
+                } 
+                if (response.data.token) {
                     const token = response.data.token;
                     const user = response.data.user ? response.data.user : null;
                     dispatch((authLoginSuccess(token, user)))
                     history.push('/')
                     
                 }
-
+                if (response.data.status === "en pause") {
+                    const message = 'status en pause';
+                    dispatch((authLoginError(message)))
+                }
+                
             }).catch(error => {
                 let status = null;
                 
@@ -72,47 +75,6 @@ export const userLoginAttempt = ({ email, password, is_client,reservation,admin 
             })
         }
 
-    }else {
-        return (dispatch) => {
-            dispatch(authLoginRequest());
-            return axios.post('/login', {
-                email: email,
-                password: password,
-                is_client: is_client
-            }).then(response => {
-                if (response.data.error === "Mot de passe ou email incorrect") {
-                    const message = 'email ou mot de passe incorrect';
-                    dispatch((authLoginError(message)))
-                } else {
-                    const token = response.data.token;
-                    const user = response.data.user ? response.data.user : null;
-                    dispatch((authLoginSuccess(token, user)))
-                    if (reservation) {
-                        history.push(reservation);
-                    }else{
-                        history.push('/dashboard');
-                    }
-                }
-            }).catch(error => {
-                let status = null;
-    
-                if (error.response) {
-                    if (error.response.status) {
-                        status = error.response.status;
-                    }
-                }
-                let message = '';
-                if (401 === status) {
-                    message = 'Utilisateur ou mot de passe incorrect';
-                } else if (500 === status) {
-                    message = 'Une erreur est survenue. Réessayer à nouveau !';
-                }
-    
-                dispatch((authLoginError(message)))
-            })
-        }
-        
-    }
 }
 
 

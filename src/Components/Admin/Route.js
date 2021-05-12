@@ -42,6 +42,12 @@ import prevu from '../../Components/forms/Prevue'
 import Home2 from '../../Components/forms/extranet/Home/Home';
 import adminuser from "./users/User";
 import compta from '../../Components/forms/extranet/compta/Compta';
+import { connect } from 'react-redux';
+
+
+import admin from './admin/Admins'
+import add_admin from './admin/Add'
+import show_admin from './admin/Update'
 
 class App extends React.Component {
     render() {
@@ -50,7 +56,12 @@ class App extends React.Component {
         return (
               <BrowserRouter>
                 <Switch>
-                    {/* <Route exact path="/" component={HomePage} /> */}
+                    {/* USER */}
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/user/all" component={users} />
+                    <Route exact path="/user/:user_id/adminshow/" component={adminuser} />
+
+                    {/* LOGEMENT  */}
 
                   <Route exact path="/logements/all" component={logements} />
                   <Route exact path="/logement/:logement_id/show" component={logement} />
@@ -58,6 +69,7 @@ class App extends React.Component {
                   <Route exact path="/extraheb/:logement_id" component={Extraheb} />
                   <Route exact path="/logement/:logement_id/detail" component={Details} />
 
+                    {/*  EXTRANET */}
 
                   <Route exact path="/extraheb/:logement_id" component={Extraheb} />
                   <Route exact path="/modifierpiece/:logement_id/chambre" component={Modifierpiece} />
@@ -92,9 +104,28 @@ class App extends React.Component {
                   <Route exact path="/invitaion/cogestionaire/:time/:user/:logement_id/:date" component={invitation} />
                   <Route exact path="/prevuer/:logement_id/prevue" component={prevu} />
                   <Route exact path="/compta/:logement_id" component={compta} />
+                    
+                    {/* ADMIN  */}
+                    
+                    
+                    {
+                       user.niveau === "2"  ? (
+                            <>
+                                <Route exact path="/admin" component={admin} />
+                                <Route exact path="/admin/add" component={add_admin} />
+                                <Route exact path="/admin/show/:admin_id" component={show_admin} />
+                                
+                            </>
+                        ) : null
+                    }
                 </Switch>
             </BrowserRouter>
         );
     }
 }
-export default App;
+const mapStateToprops = (state) => {
+    return {
+        ...state.auth
+    }
+}
+export default connect(mapStateToprops)(App);

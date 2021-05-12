@@ -3,6 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { CSVLink } from "react-csv";
 import history from '../../../history';
+import { connect } from 'react-redux';
 
 const headers = [
   { label: "Nom", key: "name" },
@@ -14,7 +15,7 @@ const headers = [
   { label: "Numéro urgence", key: "urgence" },
   { label: "Sexe", key: "sexe" },
 ];
-function Home() {
+function Home(props) {
   const [users, setUsers] = useState(false)
   const [cherche, setCherche] = useState(false)
  useEffect(() => {
@@ -50,24 +51,34 @@ function Home() {
     await axios.delete(`/user/${id}/delete`)
     history.push('/user/all')
   }
+  const { isAuthenticated } = props;
+  const { user } = props;
         return (
             <>
-              <div className="flex">
-            <div className="w-3/12 h-screen bg-gray-700">
-                <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
-                <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
-                 
-                       Utilisateurs
-                
-                    {/* {this.state.users && this.state.users.length} */}
-                </div>
-                <div className="text-white text-base  h-20 flex items-center justify-center">
-                    <NavLink to={'/logements/all'}>
+          <div className="flex">
+                <div className="w-3/12 h-screen bg-gray-700">
+                    <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
+                    <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
+                          Utilisateurs
+                    
+                    </div>
+                    <div className="text-white text-base  h-20 flex items-center justify-center">
+                      <NavLink to={'/logements/all'}>
                         Logements
-                    </NavLink>
-                    {/* {this.state.logements && this.state.logements.length} */}
-                </div>
-            </div>
+                      </NavLink>
+                    </div>
+                     {
+                       user.niveau === "2"  ? (
+                            <>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                <NavLink to={'/admin'}>
+                                  Admin
+                                </NavLink>
+                              </div>
+                            </>
+                        ) : null
+                    }
+                  </div>
             <div className="w-2/3 mx-5 my-5">
                 <input id="recherche" placeholder='nom,prénom,email'className=" border-2 px-3 mr-3 rounded h-10 outline-none focus:border-blue-200 " onChange={(e) => {recherche(e) }} type="text"></input>
                 <label for="recherche" className="text-gray-500 hover:text-gray-700 cursor-pointer hover:font-bold" onClick={() => { send() }}>Rechercher</label>
@@ -78,7 +89,7 @@ function Home() {
                       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-  <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 capture  h-3/4 overflow-auto" >
+                      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 capture  h-3/4 overflow-auto" >
                         <table className="w-full tab divide-y divide-gray-200  mx-2">
                           <thead>
                             <tr>
@@ -135,4 +146,9 @@ function Home() {
             </>
         );
 }
-export default Home;
+const mapStateToprops = (state) => {
+  return {
+    ...state.auth
+  }
+}
+export default connect(mapStateToprops)(Home);
