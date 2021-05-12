@@ -51,7 +51,9 @@ class App extends React.Component {
               <BrowserRouter>
                 <Switch>
                     {/* <Route exact path="/" component={HomePage} /> */}
-
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/user/all" component={users} />
+                    <Route exact path="/user/:user_id/adminshow/" component={adminuser} />
                   <Route exact path="/logements/all" component={logements} />
                   <Route exact path="/logement/:logement_id/show" component={logement} />
                   <Route excat path="/logements/:logement_id/adminmessage" component={adminLogementMessages} />
