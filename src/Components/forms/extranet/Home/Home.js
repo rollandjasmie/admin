@@ -84,10 +84,10 @@ class Home extends React.Component {
             <div className="flex justify-center bg-white">
             <div className="  w-2/3 my-5 border mx-5">
              
-                  <div className="flex justify-center h-20 border-b my-5">
+                  <div className="flex justify-center h-20  my-5">
                     <label className="text-lg  text-center text-gray-600 w-2/12">
                           Arrivée
-                          <p className="border-b-2  border-blue-500 h-12 my-1">{this.state.total_arriver}</p>
+                          <p className=" h-12 my-1">{this.state.total_arriver}</p>
                     </label>
                     <label className="text-lg text-center text-gray-600 w-2/12">
                          Départ
@@ -104,7 +104,7 @@ class Home extends React.Component {
                           <p className="  h-12 my-1">{this.state.demande_total}</p>
                     </label><br></br>
                     </div>
-                    <h2 className=" flex justify-center items-center text-gray-500  text-sm mb-5">Aucune arrivée prévue à la période sélectionnée</h2>
+                    
               </div>
               </div>
         <div className="h-56 bg-white">

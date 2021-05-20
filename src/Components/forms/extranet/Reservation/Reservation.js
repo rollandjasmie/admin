@@ -123,13 +123,13 @@ class Reservation extends React.Component {
        >
           {({ values, errors, handleSubmit, touched, setFieldValue }) => (
             <Form onSubmit={handleSubmit}>
-              <div className="flex mx-5">
+              <div className="flex mx-5 w-1/2">
                 <div className="h-20 mr-4 ">
                   <h1 className="text-sm text-gray-500 text-center">
                     Date de
                 </h1>
                   <br></br>
-                  <Field  as="select" name="type" className="h-10 w-56 border bg-gray-200 rounded-xl  text-gray-500 text-center">
+                  <Field  as="select" name="type" className="h-10 w-48 border bg-gray-200 rounded-xl px-5 text-gray-500 text-center">
                     <option value="arrivee">Arrivée</option>
                     <option value="depart">Départ</option>
                   </Field>
@@ -139,45 +139,51 @@ class Reservation extends React.Component {
                     Du
                 </h1>
                   <br></br>
-                  <Field required name="debut" type="date" className="h-10 w-56 border  text-gray-500 bg-gray-200 rounded-xl  text-center" ></Field>
+                  <Field required name="debut" type="date" className="h-10 w-48 border  text-gray-500 bg-gray-200 rounded-xl  text-center" ></Field>
                 </div>
                 <div className="h-20 mr-4">
                   <h1 className="text-sm text-gray-500 text-center">
                     Au
                 </h1>
                   <br></br>
-                  <Field required name="fin" type="date" className="h-10 w-56 border bg-gray-200 rounded-xl  text-gray-500 text-center" ></Field>
+                  <Field required name="fin" type="date" className="h-10 w-48 border bg-gray-200 rounded-xl  text-gray-500 text-center" ></Field>
                 </div>
-                <div className="h-20 mr-4 flex items-end " onClick={() => { this.setState({ showfiltre: !this.state.showfiltre }) }}>
-
-                  <h1 className="rounded-xl border bg-gray-200 h-10 w-56 text-sm text-gray-500 justify-center flex items-center"  >Plus de filtre</h1>
+                <div className="h-20 mr-4  " onClick={() => { this.setState({ showfiltre: !this.state.showfiltre }) }}>
+                <h1 className="text-sm text-white text-center">
+                    Au
+                </h1>
+                  <br></br>
+                  <h1 className="rounded-xl border bg-gray-200 h-10 w-48 text-sm text-gray-500 justify-center flex items-center"  >Plus de filtre</h1>
 
                 </div>
-                <div className="h-20 mr-4 flex items-end">
+                <div className="h-20 mr-4  ">
 
-
-              <button type="submit" className="border rounded-xl  hover:font-bold h-10 w-56 text-sm text-white justify-center flex items-center ">Voir</button>
+                <h1 className="text-sm text-white text-center">
+                    Au
+                </h1>
+                  <br></br>
+              <button type="submit" className="border rounded-xl  hover:font-bold h-10 w-40 text-sm text-white justify-center flex items-center ">Voir</button>
                 </div>
               </div>
               { this.state.showfiltre ? (
                 <div className="my-5 mx-5 w-11/12 h-56 bg-gray-200 flex" filtre={this.state.filtre} showfiltre={this.state.showfiltre}>
                   <div className="mx-5 py-4">
-                    <h1 className="text-gray-700  ">Status de la réservations</h1>
+                    <h1 className="text-sm text-gray-700  ">Status de la réservations</h1>
                     <div className="flex my-3">
-                      <Field name="status" value="accepter" type="radio"></Field>
-                      <p className="text-gray-600 text-sm mx-2  ">Ok</p>
+                      <Field name="status" value="accepter" type="radio" className="h-10 flex items-center"></Field>
+                      <p className="text-gray-600 text-sm mx-2 h-10 flex items-center ">Ok</p>
                     </div>
                     <div className="flex">
-                      <Field name="status" value="annuler" type="radio"></Field>
-                      <p className="text-gray-600 text-sm mx-2  ">Annulée</p>
+                      <Field name="status" value="annuler" type="radio" className="h-10 flex items-center"></Field>
+                      <p className="text-gray-600 text-sm mx-2 h-10 flex items-center ">Annulée</p>
                     </div>
 
                   </div>
                   <div className="mx-5 py-4">
-                    <h1 className="text-gray-700  ">Communication</h1>
+                    <h1 className="text-sm text-gray-700  ">Communication</h1>
                     <div className="flex my-3">
-                      <Field name="status"  value="En attente" type="radio"></Field>
-                      <p className="text-gray-600 text-sm mx-2  ">Demande en attente</p>
+                      <Field name="status"  value="En attente" type="radio" className="h-10 flex items-center"></Field>
+                      <p className="text-gray-600 text-sm mx-2 h-10 flex items-center ">Demande en attente</p>
                     </div>
 
                   </div>
@@ -191,7 +197,7 @@ class Reservation extends React.Component {
 
 
 
-        <table className="tab divide-y divide-gray-200 my-5 mx-2">
+        <table className="tab divide-y divide-gray-200 my-5 mx-2 w-11/12">
           <thead>
             <tr>
               <th className=" text-center flex-nowrap w-1/12 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
