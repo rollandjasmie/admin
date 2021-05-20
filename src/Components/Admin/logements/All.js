@@ -93,6 +93,16 @@ function Home(props) {
                                         Admin
                                     </NavLink>
                                 </div>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                <NavLink to={'/comptabilite'}>
+                                  Comptabilité
+                                </NavLink>
+                              </div>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/historique'}>
+                                        Historique
+                                    </NavLink>
+                                </div>
                             </>
                         ) : null
                     }

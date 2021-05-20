@@ -48,6 +48,8 @@ import { connect } from 'react-redux';
 import admin from './admin/Admins'
 import add_admin from './admin/Add'
 import show_admin from './admin/Update'
+import comptable from './comptable/comptable';
+import historique from './historique/historique';
 
 class App extends React.Component {
     render() {
@@ -114,6 +116,15 @@ class App extends React.Component {
                                 <Route exact path="/admin" component={admin} />
                                 <Route exact path="/admin/add" component={add_admin} />
                                 <Route exact path="/admin/show/:admin_id" component={show_admin} />
+                                <Route exact path="/admin/show/:admin_id" component={show_admin} />
+
+                                {/* comptable */}
+                                <Route exact path="/comptabilite" component={comptable} />
+                                {/* historique */}
+
+                                <Route exact path="/historique" component={historique} />
+
+                                
                                 
                             </>
                         ) : null
