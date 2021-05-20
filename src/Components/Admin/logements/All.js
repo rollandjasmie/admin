@@ -3,6 +3,8 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import history from '../../../history';
 import { CSVLink } from "react-csv";
+import { connect } from 'react-redux';
+
 
 const headers = [
   { label: "ID", key: "idlogement" },
@@ -15,7 +17,7 @@ const headers = [
   { label: "Prénom du Proriétaire", key: "prenpro" },
   { label: "Mobile du Proriétaire", key: "mobile" },
 ];
-function Home() {
+function Home(props) {
   const [logements, setLogements] = useState(false)
   const [cherche, setCherche] = useState(false)
 
@@ -67,7 +69,8 @@ function Home() {
     headers: headers,
     filename: 'Clue_Mediator_Report.csv'
   };
-
+  const { isAuthenticated } = props;
+  const { user } = props;
 
     return (
             <>
@@ -82,6 +85,18 @@ function Home() {
                   <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
                           Logements
                   </div>
+                      {
+                        user.niveau === "2" ? (
+                            <>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/admin'}>
+                                        Admin
+                                    </NavLink>
+                                </div>
+                            </>
+                        ) : null
+                    }
+                        
                 </div>
             <div className="w-2/3 mx-5 my-5">
                 <input id="recherche" placeholder='nom,prénom,email'className=" border-2 px-3 mr-3 rounded h-10 outline-none focus:border-blue-200 " onChange={(e) => { recherche(e) }} type="text"></input>
@@ -182,4 +197,9 @@ function Home() {
     
 }
 
-export default Home;
+const mapStateToprops = (state) => {
+  return {
+    ...state.auth
+  }
+}
+export default connect(mapStateToprops)(Home);

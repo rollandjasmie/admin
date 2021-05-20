@@ -1,16 +1,17 @@
 import React from 'react';
-import AjoutHebergements from "./Components/pages/AjoutHebergements";
 import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import './loader.js'
 import admin_connexion from  './Components/Admin/connexion/Connexion'
 import Admin from './Components/Admin/Route'
+import AjoutHebergements from './Components/pages/AjoutHebergements'
+
 
 class App extends React.Component {
   render() {
-    const { isAuthenticated } = this.props;
-    const { user } = this.props;
+      const { isAuthenticated } = this.props;
+      const { user } = this.props;
     return (
       <>
         <BrowserRouter>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Navboard from '../../Navbar/Navboard'
+
 import 'moment/locale/fr-ca';
 import Facturation from './Facturation';
 import Facture from '../compta/Facture';
 import Bancaire from './Bancaire';
 import { Nav } from 'react-bootstrap';
-
+import Navbarextra from "../../Navbar/Navbarextra";
+import Navbarextra2 from "../../Navbar/Navbarextra2";
 
 class Reservationtout extends Component {
   constructor(props){
@@ -54,7 +55,14 @@ class Reservationtout extends Component {
     const { match: { params } } = this.props
       return (
           <>
-          <Navboard />
+<div>
+                        <div className="">
+                            <Navbarextra logement_id={params.logement_id} />
+                        </div>
+                        <div className="h-24">
+                        <Navbarextra2 logement_id={params.logement_id} />
+                        </div>
+                </div>
           <div>
             <div>
                     <Nav variant="tabs" defaultActiveKey="#" className="text-gray-500 mt-10 mx-10 ">
