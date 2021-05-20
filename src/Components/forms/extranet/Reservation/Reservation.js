@@ -80,12 +80,18 @@ class Reservation extends React.Component {
     return (
       <>
         <div className="w-full bg-white">
-          <div className="h-24">
-            <Navbarextra logement_id={params.logement_id} />
-          </div>
-          <div>
-            <Navbarextra2 logement_id={params.logement_id} />
-          </div>
+        <div>
+                <div>
+                        <div className="">
+                            <Navbarextra logement_id={params.logement_id} />
+                        </div>
+                        <div className="h-24">
+                        <Navbarextra2 logement_id={params.logement_id} />
+                        </div>
+                </div>
+
+            </div>
+
         </div>
         <label className=" mx-5 my-5 w-11/12">
           <h1 className="text-base text-gray-600 font-medium cursor-pointer" onClick={() => {history.push(`/logements/${params.logement_id}/reservation_extra`)}}>Réservation</h1>
