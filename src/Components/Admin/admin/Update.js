@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
-
 import { NavLink } from 'react-router-dom';
 import history from '../../../history';
 import { connect } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
+import * as Yup from 'yup';
 import axios from 'axios';
+const SignupSchema = Yup.object().shape({
+    pseudo: Yup.string()
+        .min(6, 'au moins 6 caractères!'),
+    mobile: Yup.number()
+        .min(10, 'Min 10 caractères!')
+        .min(12, 'Max 12 caractères!'),
+      
+       
+
+});
 
 
 
@@ -48,13 +58,25 @@ function Home(props) {
                                         Admin
                                     </NavLink>
                                 </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/comptabilite'}>
+                                        Comptabilité
+                                    </NavLink>
+                                </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/historique'}>
+                                        Historique
+                                    </NavLink>
+                                </div>
                             </>
+                            
                         ) : null
                     }
                 </div>
                 {users?(
                     <div className="w-2/3 mx-5 my-5">
                         <Formik
+                            validationSchema={SignupSchema}
                             initialValues={users}
                             onSubmit={values => {
                                 console.log(values)
@@ -72,11 +94,13 @@ function Home(props) {
                         >
                             {({ values, errors, handleSubmit, touched, setfieldValue }) => (
                                 <Form className="cont" onSubmit={handleSubmit}>
-                                    <Field required   name="pseudo" placeholder="Pseudo" min="6" type="text"></Field><br />
+                                    <Field required   name="pseudo" placeholder="Pseudo" minlength="6" type="text"></Field><br />
                                     <Field required   name="first" placeholder="Prénom" type="text"></Field><br />
                                     <Field required   name="name" placeholder="Nom" type="text"></Field><br />
                                     <Field required   name="email" placeholder="Email" type="email"></Field><br />
-                                    <Field required   name="mobile" placeholder="Numéro de tél portable" type=""></Field><br />
+                                    <Field required   name="mobile" placeholder="Numéro de tél portable" type="tel" minlength="10" maxlength="12" ></Field><br />
+                                    <label className="text-red-600 text-sm ">
+                                    </label>
                                     <Field required   name="adresse" placeholder="Adresse complète (numéro + rue, code postal, ville, Région/département)" type="text"></Field><br />
                                     <label>
                                         Niveau d’accréditation:<br />

@@ -39,6 +39,16 @@ function Home(props) {
                                         Admin
                                     </NavLink>
                                 </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/comptabilite'}>
+                                        Comptabilité
+                                    </NavLink>
+                                </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/historique'}>
+                                        Historique
+                                    </NavLink>
+                                </div>
                             </>
                         ) : null
                     }
@@ -71,7 +81,7 @@ function Home(props) {
                     >
                         {({ values, errors, handleSubmit, touched, setfieldValue }) => (
                             <Form className="cont" onSubmit={handleSubmit}>
-                            <Field required name="pseudo" placeholder="Pseudo" min="6" type="text"></Field><br />
+                            <Field required name="pseudo" placeholder="Pseudo"minlength="6" type="text"></Field><br />
                             <Field required name="first" placeholder="Prénom" type="text"></Field><br />
                             <Field required name="name" placeholder="Nom" type="text"></Field><br />
                             <Field required name="email" placeholder="Email" type="email"></Field><br />
