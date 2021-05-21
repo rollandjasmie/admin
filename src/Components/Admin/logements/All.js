@@ -77,32 +77,32 @@ function Home(props) {
               <div className="flex">
                 <div className="w-3/12 h-screen bg-gray-700">
                   <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
-                  <div className="text-white text-base  h-20 flex items-center justify-center">
                     <NavLink to={'/user/all'}>
+                  <div className="text-white text-base  h-20 flex items-center justify-center">
                       Utilisateurs
-                    </NavLink>
                   </div>
+                    </NavLink>
                   <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
                           Logements
                   </div>
                       {
                         user.niveau === "2" ? (
                             <>
-                                <div className="text-white text-base  h-20 flex items-center justify-center">
                                     <NavLink to={'/admin'}>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
                                         Admin
-                                    </NavLink>
                                 </div>
-                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    </NavLink>
                                 <NavLink to={'/comptabilite'}>
-                                  Comptabilité
-                                </NavLink>
-                              </div>
                               <div className="text-white text-base  h-20 flex items-center justify-center">
+                                  Comptabilité
+                              </div>
+                                </NavLink>
                                     <NavLink to={'/historique'}>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
                                         Historique
-                                    </NavLink>
                                 </div>
+                                    </NavLink>
                             </>
                         ) : null
                     }
@@ -168,15 +168,15 @@ function Home(props) {
                                     </td>
                                   
                                     <td className="w-full flex justify-center items-center text-center flex-nowrap break-all  py-5  ">
-                                    <span className=" px-1 inline-flex text-xs leading-5 font-medium rounded-full text-gray-500   ">
                                       <NavLink to={`/logements/${logement.logement.id}/Home`}>
+                                    <label className="h-10 px-1 inline-flex text-xs leading-5 flex items-center font-medium rounded-full text-gray-500   ">
                                       Modifier /
+                                      </label>
                                       </NavLink>
-                                      </span>
-                                      <span className="inline-flex text-xs leading-5 font-semibold rounded-full text-gray-500  hover:text-red-500 hover:font-bold"
+                                      <label className="h-10 inline-flex flex items-center text-xs leading-5 font-medium rounded-full text-gray-500  hover:text-red-500 hover:font-bold"
                                       onClick={() => { if (window.confirm('Vous êtes sûr?'))supp(logement.logement.id) }}>
                                       Supprimer
-                                      </span>
+                                      </label>
                                     </td>
                                   </tr>
                                   </>

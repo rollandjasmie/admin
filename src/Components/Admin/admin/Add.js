@@ -71,24 +71,67 @@ function Home(props) {
                     >
                         {({ values, errors, handleSubmit, touched, setfieldValue }) => (
                             <Form className="cont" onSubmit={handleSubmit}>
-                            <Field required name="pseudo" placeholder="Pseudo" min="6" type="text"></Field><br />
-                            <Field required name="first" placeholder="Prénom" type="text"></Field><br />
-                            <Field required name="name" placeholder="Nom" type="text"></Field><br />
-                            <Field required name="email" placeholder="Email" type="email"></Field><br />
-                            <Field required name="mobile" placeholder="Numéro de tél portable" type=""></Field><br />
-                            <Field required name="adresse" placeholder="Adresse complète (numéro + rue, code postal, ville, Région/département)" type="text"></Field><br />
-                            <label>
+                            <div>
+                                <div className="text-gray-600"> Pseudo :</div>
+                                <Field required name="pseudo" placeholder="Pseudo" min="6" type="text" className="border rounded py-2 px-4"></Field><br />
+                            </div>  
+                            <div className="flex mt-3">
+                                  <div>
+                                    <div className="text-gray-600">Nom :</div>
+                                    <Field required name="name" placeholder="Nom" type="text"className="border rounded py-2 px-4" ></Field><br />
+                                  </div>
+                                  <div className="mx-3"> 
+                                    <div className="text-gray-600">Prénom :</div>
+                                  <Field required name="first" placeholder="Prénom" type="text" className="border rounded py-2 px-4"></Field><br />
+                                  </div>
+                             </div>
+                             <div className="mt-3">
+                                <div className="text-gray-600"> Email :</div>
+                            <Field required name="email" placeholder="Email" type="email"className="border rounded py-2 px-4"></Field><br />
+                            </div>
+                            <div  className="mt-3">
+                                <div className="text-gray-600"> Telephone :</div>
+                            <Field required name="mobile" placeholder="Numéro de tél portable" type=""className="border rounded py-2 px-4"></Field><br />
+                          </div>
+                          <div className="mt-3">
+                                <div className="text-gray-600"> Adresse :</div>
+                            <Field required name="adresse" placeholder="Adresse complète (numéro + rue, code postal, ville, Région/département)"className="border rounded py-2 px-4" type="text"></Field><br />
+                          </div>
+                            <div className="mt-3 text-gray-600">
                               Niveau d’accréditation:<br />
-                                <label>1<br />
-                                  <Field required name="niveau"  type="radio" value="1"></Field>
-                                </label> ou
-                                <label>2
-                                  <br />
-                                  <Field required name="niveau"  type="radio" value="2"></Field>
+                              <div className="flex my-3"> 
+                                <label className="flex">
+                                  <Field required name="niveau"  type="radio" value="1" className="my-1 mr-3"></Field>
+                                  1
+                                </label> 
+                                <label className="ml-5 mr-5">  ou</label>
+                              
+
+                                <label className="flex">
+                                 
+                                  <Field required name="niveau"  type="radio" value="2" className="my-1 mr-3"></Field>
+                                  2
                                 </label>
-                            </label><br />
-                            
-                            <label>
+                            </div>
+                            </div>
+                            <div className="mt-3 text-gray-600">
+                            Statut :<br />
+                              <div className="flex my-3"> 
+                                <label className="flex">
+                                  <Field required name="statu" placeholder="" value="actif" type="radio" className="my-1 mr-3"></Field>
+                                  actif
+                                </label> 
+                                <label className="ml-5 mr-5">  ou</label>
+                              
+
+                                <label className="flex">
+                                 
+                                  <Field required name="statu" placeholder="" value="en pause" type="radio" className="my-1 mr-3"></Field>
+                                  en pause 
+                                </label>
+                            </div>
+                            </div>
+                            {/* <label className="mt-3">
                               Statut:<br />
                               <label>actif<br />
                                 <Field required name="statu" placeholder="" value="actif" type="radio"></Field>
@@ -99,7 +142,7 @@ function Home(props) {
                               </label>
                             </label><br />
                             
-                            <Field required name="password" placeholder="password" type="password"></Field><br />
+                            <Field required name="password" placeholder="password" type="password"></Field><br /> */}
                             <div className="flex items-end justify-end my-5">
                               <button class=" text-white font-bold py-2 px-4 rounded mr-1" onClick={()=>{history.push('/admin')}} >annuler</button>
                               <button class=" text-white pl-6 pr-6 font-bold py-2 px-4 rounded" type="submit">ajouter</button>
