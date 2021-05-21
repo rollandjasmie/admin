@@ -143,7 +143,7 @@ function Home(props) {
                         </div>
                     </>
               ):<div>
-                <h1 className=" text-gray-500 my-5 ">
+                <h1 className=" text-gray-500 text-base my-5 ">
                 Aucun élément trouvé
                 </h1>
               </div>
