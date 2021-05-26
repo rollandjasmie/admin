@@ -62,29 +62,29 @@ function Home(props) {
                           Utilisateurs
                     
                     </div>
-                    <div className="text-white text-base  h-20 flex items-center justify-center">
                       <NavLink to={'/logements/all'}>
+                    <div className="text-white text-base  h-20 flex items-center justify-center">
                         Logements
-                      </NavLink>
                     </div>
+                      </NavLink>
                      {
                        user.niveau === "2"  ? (
                             <>
-                              <div className="text-white text-base  h-20 flex items-center justify-center">
                                 <NavLink to={'/admin'}>
-                                  Admin
-                                </NavLink>
-                              </div>
-                               <div className="text-white text-base  h-20 flex items-center justify-center">
-                                <NavLink to={'/comptabilite'}>
-                                  Comptabilité
-                                </NavLink>
-                              </div>
                               <div className="text-white text-base  h-20 flex items-center justify-center">
+                                  Admin
+                              </div>
+                                </NavLink>
+                                <NavLink to={'/comptabilite'}>
+                               <div className="text-white text-base  h-20 flex items-center justify-center">
+                                  Comptabilité
+                              </div>
+                                </NavLink>
                                     <NavLink to={'/historique'}>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
                                         Historique
-                                    </NavLink>
                                 </div>
+                                    </NavLink>
                             </>
                         ) : null
                     }
@@ -118,7 +118,7 @@ function Home(props) {
                             {users && users.map(user =>
                               <tr>
                                 <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500  tracking-wider ">
-                                  <NavLink to={`/user/${user.id}/adminshow`}>
+                                  <NavLink to={`/user/${user.id}/adminshow`} className="text-gray-500">
                                   {user.first_name}{" "}{user.name}{" "}{}<br />
                                   </NavLink>
                                 </td>

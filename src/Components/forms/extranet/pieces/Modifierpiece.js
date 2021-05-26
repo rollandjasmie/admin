@@ -140,7 +140,7 @@ function Modifierpiece(props){
                 <Navbarextra logement_id={params.logement_id}/>
             </div> 
             <div className="h-24">
-                <Navbarextra2/>
+                <Navbarextra2 logement_id={params.logement_id}/>
             </div> 
            
                   <NavLink to={`/extraheb/${params.logement_id}`}>
@@ -198,9 +198,7 @@ function Modifierpiece(props){
                             <Modal.Header closeButton>
                                 <Modal.Title >
                                     <h1 className="text-base py-5">Quels espaces sont  à disposition des voyageurs ?</h1>
-                                    <h2 className="text-sm text-gray-600 font-normal ">Indiquez toutes les pièces que les voyageurs peuvent utiliser, même
-                                    les pièces partagées
-                                    </h2>
+                                    
                                 </Modal.Title>
                             
                             </Modal.Header>

@@ -31,7 +31,7 @@ class Affichage extends React.Component{
               <h1 className="w-2/3 text-xl font-bold text-gray-700">Photos</h1>
               <Link to={`/logements/${this.props.logement_id}/photos`} >
 
-               <h2 className="text-theme border-2 sansbg rounded px-4 py-2 hover:text-white">Modifier</h2>
+               <h2 className="text-theme text-base border-2 sansbg rounded px-4 py-2 hover:text-white">Modifier</h2>
               </Link>
             </div>
             <div className="w-2/3 text-right mx-20 mt-5 font-bold" > {this.state.photos?(<span className="text-blue-500"> {this.state.photos.length } </span>):null} {this.state.photos && this.state.photos.length==1? (<span  className="text-blue-500">photo</span>) : (<span className="text-blue-500">photos</span>)}</div>

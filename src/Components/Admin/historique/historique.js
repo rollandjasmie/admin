@@ -67,10 +67,10 @@ function Home(props) {
                     }
                 </div>
                 <div className="w-2/3 mx-5 my-5">
-                    <div>
+                    {/* <div>
                         <input id="recherche" placeholder='id rés,ID ou nom proprio,statut' className=" border-2 px-3 mr-3 rounded h-10 outline-none focus:border-blue-200 " onChange={(e) => { recherche(e) }} type="text"></input>
                         <label for="recherche" className="text-gray-500 hover:text-gray-700 cursor-pointer hover:font-bold" onClick={() => { send() }}>Rechercher</label>
-                    </div>
+                    </div> */}
                     {
                         compta ? (
                             <>
@@ -142,11 +142,12 @@ function Home(props) {
                                     </div>
                                 </div>
                             </>
-                        ) : <div>
-                            <h1 className=" text-gray-500 my-5 ">
-                                Aucun élément trouvé
-                            </h1>
-                        </div>
+                        ) : null
+                        //  <div>
+                        //     <h1 className=" text-gray-500 text-base my-5 ">
+                        //         Aucun élément trouvé
+                        //     </h1>
+                        // </div>
                     }
                 </div>
             </div>

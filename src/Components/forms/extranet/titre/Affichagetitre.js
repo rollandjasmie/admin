@@ -33,7 +33,7 @@ class Affichagetitre extends React.Component{
                {
                  this.state.name?(
                   <NavLink to={{ pathname: `/modifiertitre/${this.props.logement_id}`, state: { logement: this.state } }} ide={this.state}>
-                    <h2 className="text-theme border-2 sansbg rounded px-4 py-2  hover:text-white">Modifier</h2>
+                    <h2 className="text-theme border-2 sansbg rounded px-4 py-2  hover:text-white text-base">Modifier</h2>
                   </NavLink>
                  ):null
                }

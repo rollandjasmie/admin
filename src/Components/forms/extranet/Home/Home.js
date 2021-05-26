@@ -54,15 +54,21 @@ class Home extends React.Component {
 
     return (
       <div className="w-full bg-white h-full mb-5">
-        <div className="h-24">
-          <Navbarextra logement_id={params.logement_id} />
-        </div>
-        <div>
-          <Navbarextra2 logement_id={params.logement_id} />
-        </div>
+         <div>
+                <div>
+                        <div className="">
+                            <Navbarextra logement_id={params.logement_id} />
+                        </div>
+                        <div className="h-24">
+                        <Navbarextra2 logement_id={params.logement_id} />
+                        </div>
+                </div>
+
+            </div>
+
         <div className="flex justify-center items-center mx-3 mt-5 mx-5">
               <h1 className="text-gray-600 text-sm font-bold w-1/3 flex items-center">Récapitulatif des réservations</h1>
-              <label>
+              <label >
                 <select className="w-64 flex justify-center items-center mx-5 text-sm text-orange-500 border-2 border-orange-500 bg-white h-12 text-center rounded  break-all" onChange={(e)=>{this.change(e)}}>
                   <option className=" mx-5 text-sm text-gray-600 h-10  px-3 break-all" value = "0" >Aujourd’hui</option>
                   <option className=" mx-5 text-sm text-gray-600 h-10  px-3 break-all" value = "-1">Semaine précédente</option>
@@ -70,18 +76,18 @@ class Home extends React.Component {
                   <option className=" mx-5 text-sm text-gray-600 h-10  px-3 break-all" value = "2" >Mois prochain</option>
                 </select>
               </label>
-              <NavLink to= {`/logements/${params.logement_id}/reservation_extra`} className="w-1/2 flex justify-end items-center text-gray-500  text-sm font-medium cursor-pointer">
-              <h2 className="w-1/3 flex justify-end items-center text-gray-500  text-sm font-medium">Voir toutes les réservations</h2>
+              <NavLink to= {`/logements/${params.logement_id}/reservation_extra`} className="w-1/3 flex justify-end items-center text-gray-500  text-sm font-medium cursor-pointer">
+              <h2 className="flex justify-end items-center text-gray-500  text-sm font-medium">Voir toutes les réservations</h2>
               </NavLink>
         </div>
               <hr className="mt-2 w-11/12 mx-5"></hr>
             <div className="flex justify-center bg-white">
             <div className="  w-2/3 my-5 border mx-5">
              
-                  <div className="flex justify-center h-20 border-b my-5">
+                  <div className="flex justify-center h-20  my-5">
                     <label className="text-lg  text-center text-gray-600 w-2/12">
                           Arrivée
-                          <p className="border-b-2  border-blue-500 h-12 my-1">{this.state.total_arriver}</p>
+                          <p className=" h-12 my-1">{this.state.total_arriver}</p>
                     </label>
                     <label className="text-lg text-center text-gray-600 w-2/12">
                          Départ
@@ -98,7 +104,7 @@ class Home extends React.Component {
                           <p className="  h-12 my-1">{this.state.demande_total}</p>
                     </label><br></br>
                     </div>
-                    <h2 className=" flex justify-center items-center text-gray-500  text-sm mb-5">Aucune arrivée prévue à la période sélectionnée</h2>
+                    
               </div>
               </div>
         <div className="h-56 bg-white">
@@ -118,7 +124,7 @@ class Home extends React.Component {
               <div className="w-11/12 flex justify-center items-center  mt-5 h-18">
                       <h1 className="text-gray-600 text-sm font-bold w-1/2 flex items-center">Nouveau message non lu</h1>
                     <NavLink to= {`/logements/${params.logement_id}/message`}  className="w-1/2 flex justify-end items-center text-gray-500  text-sm font-medium cursor-pointer">
-                      <h2>Voir tous les messages</h2>
+                      <h2 className="flex justify-end items-center text-gray-500  text-sm font-medium">Voir tous les messages</h2>
                       </NavLink>
               </div>
            </div>

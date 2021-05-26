@@ -290,8 +290,8 @@ class Affichage extends Component {
                                 />
                                 </div>
                                 <p className="text-sm text-gray-600 mx-5 my-5">Votre réduction s’appliquera sur les séjours réservés aux date(s) :</p>
-                                <p className="mx-5 text-gray-700 px-5">
-                                    <input disabled={true} className="w-64 h-10 border rounded my-3 mx-5 bg-gray-200 text-center focus:bg-white text-sm"  onChange={(e)=>{this.setState({datedebut:e.target.value})}} defaultValue={this.state.datedebut} type="text" name="datedebut"/>
+                                <p className="mx-5 text-gray-700 ">
+                                    <input disabled={true} className="w-64 h-10 border rounded my-3  bg-gray-200 text-center focus:bg-white text-sm"  onChange={(e)=>{this.setState({datedebut:e.target.value})}} defaultValue={this.state.datedebut} type="text" name="datedebut"/>
                                     <input disabled={true} className="w-64 h-10 border rounded my-3 mx-2 bg-gray-200 text-center focus:bg-white text-sm" onChange={(e) => { this.setState({ datefin:e.target.value})}} defaultValue={this.state.datefin} type="text" name="datefin" />
                                 </p>
                                 <div className="my-5">

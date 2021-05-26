@@ -69,7 +69,7 @@ function Home(props) {
                         ) : null
                     }
                 </div>
-                <div className="w-2/3 mx-5 my-5">
+                <div className="w-full my-5">
                     <div>
                         <select className=" w-40 h-10 mx-4 rounded leading-tight text-xs bg-gray-300 border border-gray-200 text-gray-700  focus:outline-none focus:bg-white focus:border-gray-500" onChange={(e)=>{filtre(e)}}  id="grid-state">
                             <option value="all">----Menu déroulant (filtres)----</option>
@@ -92,29 +92,29 @@ function Home(props) {
                                         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 capture  h-3/4 overflow-auto" >
-                                                    <table className="w-full tab divide-y divide-gray-200  mx-2">
+                                                    <table className="w-full tab divide-y divide-gray-200  ">
                                                         <thead>
                                                             <tr>
-                                                                <th className="w-1/3 text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    ID Résa
+                                                                <th className="w-2/12 text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    N° de reseration
                                                                 </th>
-                                                                <th className="w-1/3   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    ID Proprio
+                                                                <th className="w-2/12   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    ID Propriétaire
                                                                 </th>
-                                                                <th className="w-1/3 text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    Nom Proprio
+                                                                <th className="w-2/12 text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    Nom Propriétaire
                                                                 </th>
 
-                                                                <th className="w-1/3   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    total résa sans taxe séjour
+                                                                <th className="w-3/12   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    tarif total sans taxe de séjour
                                                                 </th>
-                                                                <th className="w-1/3   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    Com runbnb
+                                                                <th className="w-2/12   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    Commission 
                                                                 </th>
-                                                                <th className="w-1/3   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
-                                                                    Net proprio
+                                                                <th className="w-2/12   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                    Montant
                                                                 </th>
-                                                                <th className="w-1/3   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
+                                                                <th className="w-2/12   text-center flex-nowrap py-3  text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider ">
                                                                     Statut
                                                                 </th>
 
@@ -124,25 +124,25 @@ function Home(props) {
                                                         <tbody className="bg-white divide-y divide-gray-200 w-full">
                                                             {compta && compta.map(compta =>
                                                                 <tr>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500  tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500  tracking-wider ">
                                                                         {compta.numreservation}<br />
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.idProrio}<br />
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.nomProprio}
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.sanstaxe}€
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.commission}€
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.montantnet}€
                                                                     </td>
-                                                                    <td className="w-1/3 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
+                                                                    <td className="w-2/12 text-center  py-3  text-xs leading-4 font-medium text-gray-500 tracking-wider ">
                                                                         {compta.statut}
                                                                     </td>
                                                                 </tr>

@@ -148,14 +148,14 @@ class Message extends Component {
                             ))
                         }
                         </div>
-                                <div className="mx-3">
+                                {/* <div className="mx-3">
                                     <div className="my-3 flex mx-3">
                                         <input  onChange={this.text} type='text'defaultValue={null} className="w-10/12 border rounded-2xl leading-tight"/>
                                         <button onClick={this.envoyer} className="w-24 contacterr textprom h-10 border-2 ml-3  rounded-xl border-orange-500 flex items-center justify-center hover:bg-orange-500 hover:text-white">Envoyer</button>
                                     </div> 
                                     <label for="file" className="label-file text-sm mx-3">Choisir un fichier</label>
                                    <input className="input-file" id="file" type="file" accept=".xlsx,.xls,.png,.jpg,.doc, .docx,.ppt, .pptx,.txt,.pdf" onChange={this.file} />
-                                </div>
+                                </div> */}
                         </>        
                     ):(
                     <div className="text-center text-gray-600 font-medium my-5">

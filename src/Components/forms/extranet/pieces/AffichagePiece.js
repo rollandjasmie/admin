@@ -50,7 +50,7 @@ class AffichagePiece extends React.Component{
               <div className="flex">
                <h1 className="w-2/3 text-xl font-bold text-gray-700">Pièces et espaces</h1>
                <NavLink to={`/modifierpiece/${this.props.logement_id}/chambre`}>
-               <h2 className="text-theme border-2 sansbg rounded px-4 py-2 hover:text-white">Modifier</h2>
+               <h2 className="text-theme border-2 text-base sansbg rounded px-4 py-2 hover:text-white">Modifier</h2>
                </NavLink>
               </div>
 
