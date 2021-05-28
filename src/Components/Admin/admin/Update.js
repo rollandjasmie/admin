@@ -85,11 +85,12 @@ function Home(props) {
                                         if (response.data.statu === "Email déjà existé") {
                                             toast.error("Email déjà existé")
 
+                                       }else{
+                                           history.push(`/admin/show/${users.id}`)
                                        }
                                     })
                                 }
                                 add()
-                                history.push(`/admin/show/${users.id}`)
                             }}
                         >
                             {({ values, errors, handleSubmit, touched, setfieldValue }) => (

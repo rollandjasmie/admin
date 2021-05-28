@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import history from '../../../history';
 import { connect } from 'react-redux';
-
+import { FaUserPlus } from 'react-icons/fa';
 
 function Home(props) {
     const [users, setUsers] = useState(false)
@@ -42,46 +42,54 @@ function Home(props) {
             <div className="flex">
                 <div className="w-3/12 h-screen bg-gray-700">
                     <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
-                    <div className="text-white text-base  h-20 flex items-center justify-center" >
                         <NavLink to={'/user/all'}>
+                    <div className="text-white text-base  h-20 flex items-center justify-center" >
                             Utilisateurs
-                        </NavLink>
 
                     </div>
-                    <div className="text-white text-base  h-20 flex items-center justify-center">
-                        <NavLink to={'/logements/all'}>
-                            Logements
                         </NavLink>
+                        <NavLink to={'/logements/all'}>
+                    <div className="text-white text-base  h-20 flex items-center justify-center">
+                            Logements
                     </div>
+                        </NavLink>
                     {
                         user.niveau === "2" ? (
                             <>
-                                <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500">
                                     <NavLink to={'/admin'}>
+                                <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500">
                                         Admin
-                                    </NavLink>
                                 </div>
-                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    </NavLink>
                                     <NavLink to={'/comptabilite'}>
-                                        Comptabilité
-                                    </NavLink>
-                                </div>
                                 <div className="text-white text-base  h-20 flex items-center justify-center">
-                                    <NavLink to={'/historique'}>
-                                        Historique
-                                    </NavLink>
+                                        Comptabilité
                                 </div>
+                                    </NavLink>
+                                    <NavLink to={'/historique'}>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                        Historique
+                                </div>
+                                    </NavLink>
                             </>
                         ) : null
                     }
                 </div>
                 <div className="w-2/3 mx-5 my-5">
-                    <NavLink to={'/admin/add'}>
-                        Ajouter un admin
-                    </NavLink>
-
-                    <input id="recherche" placeholder='nom,prénom,email' className=" border-2 px-3 mr-3 rounded h-10 outline-none focus:border-blue-200 " onChange={(e) => { recherche(e) }} type="text"></input>
-                    <label for="recherche" className="text-gray-500 hover:text-gray-700 cursor-pointer hover:font-bold" onClick={() => { send() }}>Rechercher</label>
+                   <div className="flex">
+                            <div className="w-9/12 h-10 mr-5"> 
+                                    <input id="recherche" placeholder='nom,prénom,email' className=" border-2 px-3 mr-3 rounded h-10 outline-none focus:border-blue-200 " onChange={(e) => { recherche(e) }} type="text"></input>
+                                    <label for="recherche" className="text-gray-500 hover:text-gray-700 cursor-pointer hover:font-bold" onClick={() => { send() }}>Rechercher</label>
+                            </div>
+                            <NavLink to={'/admin/add'}>
+                                <label className="text-gray-500 text-base h-10 mt-2 flex justify-end cursor-pointer ">
+                                <FaUserPlus style={{ width: 20, height: 20, }} className="mr-3" />
+                                <span className="">
+                                Ajouter un admin
+                                </span>   
+                                </label>
+                            </NavLink>
+                    </div>
                     {
                         users ? (
                             <>
@@ -163,7 +171,7 @@ function Home(props) {
                                
                             </>
                         ) : <div>
-                            <h1 className=" text-gray-500 my-5 ">
+                            <h1 className=" text-gray-500 text-base my-5 ">
                                 Aucun élément trouvé
                             </h1>
                         </div>

@@ -3,6 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { userLoginAttempt } from '../../../redux/Auth/auth.action';
+import { NavLink } from 'react-router-dom';
+
 
 const LoginSchema = Yup.object().shape({
     email: Yup.string()
@@ -38,15 +40,10 @@ class Signup extends React.Component {
                             <div className=" flex justify-center w-full my-5 pt-5 px-10">
                                 <h1 className="text-5xl   font-bold ">Admin <span className="runbnb">Runbnb.com</span></h1>
                             </div>
-
-
-
                             <div className=" flex justify-center w-full  ">
                                 <div className=" w-5/12  border rounded shadow">
-
                                     <Form className="  px-10" >
                                         <h1 className="block tracking-wide text-gray-700 text-xl font-bold mb-2 my-5">Se connecter</h1>
-
                                         <label className="block tracking-wide text-gray-700 text-base font-bold mb-2 my-8" for="grid-city">
                                             Adresse e-mail
                                         </label>
@@ -63,6 +60,9 @@ class Signup extends React.Component {
                                         <label className="text-red-600 text-sm ">
                                             {error}
                                         </label>
+                                        <NavLink to="/forgot/password" className="block tracking-wide text-gray-700 text-base font-bold mb-2 my-8" for="grid-city">
+                                            Mot de passe oublié?
+                                        </NavLink>
                                         <button className="w-full appearance-none block  text-white rounded py-3
                                             px-4 my-10 leading-tight focus:outline-none hover:font-bold cursor-pointer"  type="submit">Se connecter</button>
                                     </Form>

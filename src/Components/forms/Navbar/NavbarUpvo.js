@@ -15,13 +15,6 @@ export default class NavbarUp extends Component {
                       <a className="lg:visible md:visible sm:hidden mr-5 hover:text-gray-900"></a>
                     </nav>
                     <form>
-                    <div className="flex lg:mr-8 md:mr-8 sm:ml-16">
-                    <Link to="/inscription">  
-                   <button className=" hover:font-bold text-white 
-                      rounded hover:bg-orange-500 shadow-lg px-4 py-2 sm:ml-2">S'inscrire</button>
-                    </Link>   
-                    </div>
-                    
                     </form>
                   </div>
                 </header>

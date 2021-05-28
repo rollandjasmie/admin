@@ -22,22 +22,22 @@ function Home(props) {
 
                 <div className="w-3/12 h-screen bg-gray-700">
                     <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
-                    <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
+                    <NavLink to={'/user/all'}>
+                    <div className="text-white text-base  h-20 flex items-center justify-center" >
                         Utilisateurs
 
                     </div>
-                    <div className="text-white text-base  h-20 flex items-center justify-center">
-                        <NavLink to={'/logements/all'}>
-                            Logements
                         </NavLink>
+                        <NavLink to={'/logements/all'}>
+                    <div className="text-white text-base  h-20 flex items-center justify-center">
+                            Logements
                     </div>
+                        </NavLink>
                     {
                         user.niveau === "2" ? (
                             <>
-                                <div className="text-white text-base  h-20 flex items-center justify-center">
-                                    <NavLink to={'/admin'}>
+                                <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500">
                                         Admin
-                                    </NavLink>
                                 </div>
                                 <div className="text-white text-base  h-20 flex items-center justify-center">
                                     <NavLink to={'/comptabilite'}>

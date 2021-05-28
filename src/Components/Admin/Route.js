@@ -116,7 +116,6 @@ class App extends React.Component {
                                 <Route exact path="/admin" component={admin} />
                                 <Route exact path="/admin/add" component={add_admin} />
                                 <Route exact path="/admin/show/:admin_id" component={show_admin} />
-                                <Route exact path="/admin/show/:admin_id" component={show_admin} />
 
                                 {/* comptable */}
                                 <Route exact path="/comptabilite" component={comptable} />
