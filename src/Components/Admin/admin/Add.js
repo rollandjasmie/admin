@@ -97,6 +97,12 @@ function Home(props) {
                                 <div className="text-gray-600"> Adresse :</div>
                             <Field required name="adresse" placeholder="Adresse complète (numéro + rue, code postal, ville, Région/département)"className="border rounded py-2 px-4" type="text"></Field><br />
                           </div>
+                         
+                            <div  className="mt-3">
+                                <div className="text-gray-600">Mot de passe :</div>
+                            <Field required name="password" placeholder="password" type="password" className="border rounded py-2 px-4"></Field>
+                            </div>
+
                             <div className="mt-3 text-gray-600">
                               Niveau d’accréditation:<br />
                               <div className="flex my-3"> 
@@ -114,6 +120,9 @@ function Home(props) {
                                 </label>
                             </div>
                             </div>
+
+
+
                             <div className="mt-3 text-gray-600">
                             Statut :<br />
                               <div className="flex my-3"> 
@@ -141,8 +150,8 @@ function Home(props) {
                               <Field required name="statu" placeholder="" value="en pause" type="radio"></Field>
                               </label>
                             </label><br />
+                          <Field required name="password" placeholder="password" type="password"></Field><br /> */}
                             
-                            <Field required name="password" placeholder="password" type="password"></Field><br /> */}
                             <div className="flex items-end  my-5">
                               <button class=" text-white font-bold py-2 px-4 rounded mr-1" onClick={()=>{history.push('/admin')}} >annuler</button>
                               <button class=" text-white pl-6 pr-6 font-bold py-2 px-4 rounded" type="submit">ajouter</button>
