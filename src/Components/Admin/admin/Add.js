@@ -39,6 +39,16 @@ function Home(props) {
                                 <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500">
                                         Admin
                                 </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/comptabilite'}>
+                                        Comptabilité
+                                    </NavLink>
+                                </div>
+                                <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/historique'}>
+                                        Historique
+                                    </NavLink>
+                                </div>
                             </>
                         ) : null
                     }
@@ -62,18 +72,20 @@ function Home(props) {
                             Axios.post('/create/admin', values).then(response=>{
                               if (response.data.statu === "Email déjà existé") {
                                 toast.error("Email déjà existé")
-                              } 
+                              }
+                              if (response.data.statu === "succes"){
+                                history.push('/admin')
+                              }
                             })
                           }
                           add()
-                          history.push('/admin')
                         }}
                     >
                         {({ values, errors, handleSubmit, touched, setfieldValue }) => (
                             <Form className="cont" onSubmit={handleSubmit}>
                             <div>
                                 <div className="text-gray-600"> Pseudo :</div>
-                                <Field required name="pseudo" placeholder="Pseudo" min="6" type="text" className="border rounded py-2 px-4"></Field><br />
+                                <Field required name="pseudo" placeholder="Pseudo" minlength="6" type="text" className="border rounded py-2 px-4"></Field><br />
                             </div>  
                             <div className="flex mt-3">
                                   <div>
@@ -152,10 +164,16 @@ function Home(props) {
                             </label><br />
                           <Field required name="password" placeholder="password" type="password"></Field><br /> */}
                             
-                            <div className="flex items-end  my-5">
+                         
+                            <div className="mt-3">
+                              <div className="text-gray-600"> Mot de passe :</div>
+                              <Field required name="password" placeholder="Mot de passe"className="border rounded py-2 px-4" type="password"></Field><br />
+                            </div>
+                            <div className="flex items-end justify-end my-5">
                               <button class=" text-white font-bold py-2 px-4 rounded mr-1" onClick={()=>{history.push('/admin')}} >annuler</button>
                               <button class=" text-white pl-6 pr-6 font-bold py-2 px-4 rounded" type="submit">ajouter</button>
                             </div>
+                            
                         </Form>
                         )}
                     </Formik>

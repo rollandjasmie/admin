@@ -130,7 +130,7 @@ class Modifierfrais extends React.Component {
                                             </label>
                                         </NavLink>
                                     </div>
-                                    <div className="w-full flex px-5 ">
+                                    {/* <div className="w-full flex px-5 ">
                                         <label className="w-full flex text-lg font-bold text-gray-600">
                                             Frais standard et autres frais
                                                 </label>
@@ -153,7 +153,7 @@ class Modifierfrais extends React.Component {
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="py-5 px-5 text-gray-700">
                                         <h1 className="text-sm font-bold text-gray-700">Frais supplémentaires</h1>
 

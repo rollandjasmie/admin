@@ -3,7 +3,9 @@ import axios from 'axios';
 import history from '../../../history';
 import moment from 'moment'
 import { List, ListItem, ListItemText } from '@material-ui/core/';
-import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 class User extends Component {
     state = {
         user: null,
@@ -25,31 +27,48 @@ class User extends Component {
     }
     render() {
         const { user } = this.state
+        const  admin  = this.props.user.niveau;
+
         if (user) {
             const values = {
                 name:this.state.user.name,
                 first_name:this.state.user.first_name
             }
         }
-
         return (
-          
              <>
               <div className="flex h-screen">
             <div className="w-3/12 h-screen bg-gray-700">
                 <h1 className="bg-gray-800 text-white text-5xl font-bold h-32 flex items-center justify-center"> Runbnb.com </h1>
-                <div className="text-white text-base  h-20 flex items-center justify-center">
-                 
-                       Utilisateurs
-                
-                    {/* {this.state.users && this.state.users.length} */}
-                </div>
-    
                 <div className="text-white text-base font-bold h-20 flex items-center justify-center bg-indigo-500 bg-opacity-25 border-r-4 border-red-500" >
+                          Utilisateurs
+                    </div>
+                    <div className="text-white text-base  h-20 flex items-center justify-center">
+                      <NavLink to={'/logements/all'}>
                         Logements
-                   
-                    {/* {this.state.logements && this.state.logements.length} */}
-                </div>
+                      </NavLink>
+                    </div>
+                     {
+                       admin === "2"  ? (
+                            <>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                <NavLink to={'/admin'}>
+                                  Admin
+                                </NavLink>
+                              </div>
+                               <div className="text-white text-base  h-20 flex items-center justify-center">
+                                <NavLink to={'/comptabilite'}>
+                                  Comptabilité
+                                </NavLink>
+                              </div>
+                              <div className="text-white text-base  h-20 flex items-center justify-center">
+                                    <NavLink to={'/historique'}>
+                                        Historique
+                                    </NavLink>
+                                </div>
+                            </>
+                        ) : null
+                    }
             </div>
             <div className="flex justify-center w-2/3 mx-5 my-5 h-3/4 overflow-y-auto ">
             {
@@ -120,5 +139,9 @@ class User extends Component {
         );
     }
 }
-
-export default User;
+const mapStateToprops = (state) => {
+    return {
+        ...state.auth
+    }
+}
+export default connect(mapStateToprops)(User);

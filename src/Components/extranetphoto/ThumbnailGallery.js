@@ -50,7 +50,7 @@ class ThumbnailGallery extends Component {
                 <Navbarextra logement_id={params.logement_id}/>
             </div> 
             <div className="h-24">
-                <Navbarextra2/>
+                <Navbarextra2 logement_id={params.logement_id}/>
             </div> 
         {
           this.state.name ? (

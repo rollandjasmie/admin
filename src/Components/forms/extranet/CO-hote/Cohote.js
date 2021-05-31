@@ -8,6 +8,8 @@ import { ImWarning } from "react-icons/im";
 import Modal from 'react-bootstrap/Modal'
 import Loading from 'react-loading';
 import history from '../../../../history';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 function Cohote(props) {
   const imagess ="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
     const [show, setShow] = useState(false);
@@ -35,13 +37,29 @@ function Cohote(props) {
       function retire(id){
         const asy = async () =>{
           setloading(true)
-          await
-          axios.post(`/cogestion/${params.logement_id}/${id}`).then()
+          await axios.post(`/cogestion/${params.logement_id}/${id}`).then()
           history.push(`/logements/${params.logement_id}/Co-hote`)
         }
         asy()
-        console.log(id)
       }
+   function submit(id) {
+     let ids = id
+    confirmAlert({
+      title: 'Suppression',
+      message: 'Vous êtes sure.',
+      buttons: [
+        {
+          label: 'Oui',
+          onClick: (ids) => retire(ids)
+        },
+        {
+          label: 'Non',
+          // onClick: () => alert('Click No')
+        }
+      ]
+    });
+  };
+
       if (loading) {
         return <Loading />
       } else {
@@ -62,12 +80,12 @@ function Cohote(props) {
                       }
                   </div>
             <div className="mx-5">
-              <NavLink to={`/prevuer/${params.logement_id}/prevue`}>
+              {/* <NavLink to={`/prevuer/${params.logement_id}/prevue`}>
                   <label className="sansbg rounded px-3 py-2 text-theme hover:text-white
                       hover:font-bold ">
                       Prévisualiser l'annonce
                   </label>
-              </NavLink>
+              </NavLink> */}
               <NavLink to={`/logements/${params.logement_id}/calendrier`}>
                   <label className="border-2 rounded px-3 py-2 sansbg text-theme hover:text-white
                       hover:font-bold mx-4">
@@ -189,7 +207,10 @@ function Cohote(props) {
                   <h1 className="mx-3 mt-4 text-sm font-bold text-blue-500">{co.cohote.name}{" "}{admin.cohote[0].cohote.first_name}</h1>
                       <p className="mx-3  my-2 text-sm font-medium text-gray-500">Votre co-gestionnaire</p>
                     </label>
-                    <h1 className="mx-3 mt-4 text-sm font-bold text-blue-500 cursor-pointer"  onClick={()=>{retire(co.cohote.id)}}>Retirer </h1>
+                    <h1 className="mx-3 mt-4 text-sm font-bold text-blue-500 cursor-pointer" onClick={() => {
+                      if (window.confirm('êtes vous sûr de vouloir supprimer définitivement le co-gestionnire')) { retire(co.cohote.id)}
+                    }}>Retirer</h1>
+
                 </div>
   
                 ))}

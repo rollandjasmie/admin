@@ -50,12 +50,12 @@ class Extraheb extends React.Component{
                       }
                   </div>
                   <div className="mx-5">
-                    <NavLink to={`/prevuer/${params.logement_id}/prevue`}>
+                    {/* <NavLink to={`/prevuer/${params.logement_id}/prevue`}>
                       <label className="sansbg rounded px-3 py-2 text-theme hover:text-white
                       hover:font-bold ">
                         Prévisualiser l'annonce
                       </label>
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink to={`/logements/${params.logement_id}/calendrier`}>
                       <label className="border-2 rounded px-3 py-2 sansbg text-theme hover:text-white
                       hover:font-bold mx-4">
